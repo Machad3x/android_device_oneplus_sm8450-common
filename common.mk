@@ -435,10 +435,6 @@ PRODUCT_PACKAGES += \
     libsqlite.vendor:64 \
     libvndfwk_detect_jni.qti.vendor
 
-# QTI service tracker
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.servicetracker@1.2.vendor
-
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
     RemovePackages
