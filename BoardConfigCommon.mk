@@ -101,6 +101,9 @@ TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_oplus
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 4
+BOARD_KERNEL_CMDLINE := \
+    allow_file_spec_access
+
 BOARD_BOOTCONFIG:= \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
