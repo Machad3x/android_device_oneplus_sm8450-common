@@ -32,6 +32,11 @@ PRODUCT_PACKAGES += \
     AntHalService-Soong \
     com.dsi.ant@1.0.vendor
 
+# Alert slider
+PRODUCT_PACKAGES += \
+    DeviceSettings \
+    tri-state-key-calibrate
+
 # Audio
 SOONG_CONFIG_NAMESPACES += android_hardware_audio
 SOONG_CONFIG_android_hardware_audio += \
