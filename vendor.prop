@@ -95,6 +95,10 @@ vendor.qc2audio.per_frame.flac.dec.enabled=true
 
 # Camera
 vendor.camera.aux.packageexcludelist=org.telegram.messenger,org.thunderdog.challegram,us.zoom.videomeetings
+vendor.camera.algo.jpeghwencode=0
+vendor.camera.aux.packagelist=com.oplus.camera
+ro.vendor.oplus.camera.isSupportExplorer=0
+ro.camera.enableCamera1MaxZsl=1
 
 # Chipset
 ro.soc.manufacturer=QTI

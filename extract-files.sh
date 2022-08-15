@@ -96,6 +96,12 @@ function blob_fixup() {
         vendor/etc/msm_irqbalance.conf)
             sed -i "s/IGNORED_IRQ=27,23,38$/&,115,332/" "${2}"
             ;;
+        system_ext/etc/camera/mtCalibrationCfg.xml)
+            sed -i "s/-----/--/" "${2}"
+            ;;
+        system_ext/etc/camera/mwCalibrationCfg.xml)
+            sed -i "s/-----/--/" "${2}"
+            ;;
     esac
 }
 
