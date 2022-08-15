@@ -91,6 +91,12 @@ function blob_fixup() {
         system_ext/etc/seccomp_policy/tcmd.policy)
             echo 'madvise: 1' >> ${2}
             ;;
+        system_ext/etc/camera/mtCalibrationCfg.xml)
+            sed -i "s/-----/--/" "${2}"
+            ;;
+        system_ext/etc/camera/mwCalibrationCfg.xml)
+            sed -i "s/-----/--/" "${2}"
+            ;;
     esac
 }
 
