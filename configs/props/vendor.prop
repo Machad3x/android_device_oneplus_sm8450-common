@@ -132,6 +132,7 @@ vendor.display.disable_stc_dimming=1
 vendor.display.disable_system_load_check=1
 vendor.display.enable_async_powermode=0
 vendor.display.enable_async_vds_creation=1
+vendor.display.enable_display_extensions=1
 vendor.display.enable_dpps_dynamic_fps=1
 vendor.display.enable_early_wakeup=1
 vendor.display.enable_hdr10_gpu_target=1
