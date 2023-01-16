@@ -94,6 +94,7 @@ vendor.qc2audio.suspend.enabled=true
 vendor.qc2audio.per_frame.flac.dec.enabled=true
 
 # Camera
+persist.vendor.camera.privapp.list=org.lineageos.aperture,com.oplus.camera
 vendor.camera.aux.packageexcludelist=org.telegram.messenger,org.thunderdog.challegram,us.zoom.videomeetings
 vendor.camera.algo.jpeghwencode=0
 vendor.camera.aux.packagelist=com.oplus.camera
