@@ -21,6 +21,15 @@
       "ResetOnInit": true
     },
     {
+      "Name": "CPULittleClusterGovernor",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy0/scaling_governor",
+      "Values": [
+        "walt",
+        "powersave"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "CPULittleClusterUpRateLimit",
       "Path": "/sys/devices/system/cpu/cpufreq/policy0/walt/up_rate_limit_us",
       "Values": [
@@ -62,6 +71,15 @@
       "ResetOnInit": true
     },
     {
+      "Name": "CPUBigClusterGovernor",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy4/scaling_governor",
+      "Values": [
+        "walt",
+        "powersave"
+      ],
+      "ResetOnInit": true
+    },
+    {
       "Name": "CPUBigClusterUpRateLimit",
       "Path": "/sys/devices/system/cpu/cpufreq/policy4/walt/up_rate_limit_us",
       "Values": [
@@ -97,6 +115,15 @@
         "9999999",
         "1286400",
         "787200"
+      ],
+      "ResetOnInit": true
+    },
+    {
+      "Name": "CPUBigPlusClusterGovernor",
+      "Path": "/sys/devices/system/cpu/cpufreq/policy7/scaling_governor",
+      "Values": [
+        "walt",
+        "powersave"
       ],
       "ResetOnInit": true
     },
@@ -474,6 +501,24 @@
       "Node": "LLCCBWMinFreq",
       "Duration": 0,
       "Value": "600000"
+    },
+    {
+      "PowerHint": "INTERACTIVE",
+      "Node": "CPULittleClusterGovernor",
+      "Duration": 0,
+      "Value": "walt"
+    },
+    {
+      "PowerHint": "INTERACTIVE",
+      "Node": "CPUBigClusterGovernor",
+      "Duration": 0,
+      "Value": "walt"
+    },
+    {
+      "PowerHint": "INTERACTIVE",
+      "Node": "CPUBigPlusClusterGovernor",
+      "Duration": 0,
+      "Value": "walt"
     },
     {
       "PowerHint": "INTERACTIVE",
