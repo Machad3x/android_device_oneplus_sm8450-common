@@ -1332,6 +1332,13 @@ vendor/etc/init/init_thermal-engine-v2.rc
 vendor/etc/thermal-engine.conf
 -vendor/lib64/libthermalclient.so
 
+# Thermal (limits-hal)
+vendor/bin/hw/vendor.qti.hardware.limits@1.1-service
+vendor/etc/init/vendor.qti.hardware.limits-service.rc
+vendor/etc/vintf/manifest/vendor.qti.hardware.limits-service.xml
+vendor/lib64/vendor.qti.hardware.limits@1.0.so
+vendor/lib64/vendor.qti.hardware.limits@1.1.so
+
 # Time services
 vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
