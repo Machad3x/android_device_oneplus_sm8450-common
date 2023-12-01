@@ -144,6 +144,14 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # DebugFS
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
+# Dex
+PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Launcher3QuickStep \
+    Settings \
+    SettingsGoogle \
+    SystemUI \
+    SystemUIGoogle
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.common-V2-ndk_platform.vendor \
