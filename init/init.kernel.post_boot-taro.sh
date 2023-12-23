@@ -321,6 +321,7 @@ echo 15 15 15 15 15 15 15 15 > /proc/sys/walt/sched_util_busy_hyst_cpu_util
 echo 325 > /proc/sys/walt/walt_low_latency_task_threshold
 
 # cpuset parameters
+echo 1-2 > /dev/cpuset/audio-app/cpus
 echo 0-1 > /dev/cpuset/background/cpus
 echo 0-6 > /dev/cpuset/foreground/cpus
 echo 0-3 > /dev/cpuset/system-background/cpus
