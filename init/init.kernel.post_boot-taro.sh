@@ -34,8 +34,6 @@ function configure_zram_parameters() {
 	MemTotalStr=`cat /proc/meminfo | grep MemTotal`
 	MemTotal=${MemTotalStr:16:8}
 
-	low_ram=`getprop ro.config.low_ram`
-
 	# Zram disk - 75% for Go and < 2GB devices .
 	# For >2GB Non-Go devices, size = 50% of RAM size. Limit the size to 4GB.
 	# And enable lz4 zram compression for Go targets.
@@ -53,9 +51,7 @@ function configure_zram_parameters() {
 		let zRamSizeMB=4096
 	fi
 
-	if [ "$low_ram" == "true" ]; then
-		echo lz4 > /sys/block/zram0/comp_algorithm
-	fi
+	echo lz4 > /sys/block/zram0/comp_algorithm
 
 	#ifdef OPLUS_FEATURE_ZRAM_OPT
 	#Huacai.Zhou@BSP.Kernel.MM, 2021/08/04, add zram opt
