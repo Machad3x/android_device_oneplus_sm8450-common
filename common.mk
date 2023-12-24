@@ -451,6 +451,9 @@ PRODUCT_PACKAGES += \
     android.hardware.secure_element@1.2.vendor \
     librmnetctl
 
+# Scudo
+PRODUCT_USE_SCUDO := true
+
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@2.1-service.oplus-multihal \
