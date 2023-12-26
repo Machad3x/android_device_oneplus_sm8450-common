@@ -193,3 +193,13 @@ service vendor.audioadsprpcd_audiopd /vendor/bin/audioadsprpcd audiopd
     user media
     group media
     setenv ADSP_LIBRARY_PATH ";/system/lib/rfsa/adsp;/system/vendor/lib/rfsa/adsp;/dsp;/vendor/dsp;/odm/lib/rfsa/adsp;/vendor/lib/rfsa/adsp"
+
+service vendor.qti.hardware.display.composer /vendor/bin/hw/vendor.qti.hardware.display.composer-service
+    override
+    class hal animation
+    user system
+    group graphics drmrpc
+    capabilities SYS_NICE
+    onrestart restart surfaceflinger
+    socket pps stream 0660 system system
+    task_profiles ProcessCapacityHigh HighPerformance
