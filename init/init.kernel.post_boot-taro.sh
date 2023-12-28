@@ -53,14 +53,6 @@ function configure_zram_parameters() {
 
 	echo lz4 > /sys/block/zram0/comp_algorithm
 
-	#ifdef OPLUS_FEATURE_ZRAM_OPT
-	#Huacai.Zhou@BSP.Kernel.MM, 2021/08/04, add zram opt
-	echo lz4 > /sys/block/zram0/comp_algorithm
-	echo 160 > /sys/module/zram_opt/parameters/vm_swappiness
-	echo 60 > /sys/module/zram_opt/parameters/direct_vm_swappiness
-	echo 0 > /proc/sys/vm/page-cluster
-	#endif
-
 	if [ -f /sys/block/zram0/disksize ]; then
 		if [ -f /sys/block/zram0/use_dedup ]; then
 			echo 1 > /sys/block/zram0/use_dedup
@@ -81,95 +73,6 @@ function configure_zram_parameters() {
 	fi
 }
 
-#ifdef OPLUS_FEATURE_ZRAM_OPT
-function oplus_configure_zram_parameters() {
-    MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-    MemTotal=${MemTotalStr:16:8}
-
-    echo lz4 > /sys/block/zram0/comp_algorithm
-    echo 160 > /sys/module/zram_opt/parameters/vm_swappiness
-    echo 60 > /sys/module/zram_opt/parameters/direct_vm_swappiness
-    echo 0 > /proc/sys/vm/page-cluster
-
-    if [ -f /sys/block/zram0/disksize ]; then
-        if [ -f /sys/block/zram0/use_dedup ]; then
-            echo 1 > /sys/block/zram0/use_dedup
-        fi
-
-        if [ $MemTotal -le 524288 ]; then
-            #config 384MB zramsize with ramsize 512MB
-            echo 402653184 > /sys/block/zram0/disksize
-        elif [ $MemTotal -le 1048576 ]; then
-            #config 768MB zramsize with ramsize 1GB
-            echo 805306368 > /sys/block/zram0/disksize
-        elif [ $MemTotal -le 2097152 ]; then
-            #config 1GB+256MB zramsize with ramsize 2GB
-            echo lz4 > /sys/block/zram0/comp_algorithm
-            echo 1342177280 > /sys/block/zram0/disksize
-        elif [ $MemTotal -le 3145728 ]; then
-            #config 1GB+512MB zramsize with ramsize 3GB
-            echo 1610612736 > /sys/block/zram0/disksize
-        elif [ $MemTotal -le 4194304 ]; then
-            #config 2GB+512MB zramsize with ramsize 4GB
-            echo 2684354560 > /sys/block/zram0/disksize
-        elif [ $MemTotal -le 6291456 ]; then
-            #config 3GB zramsize with ramsize 6GB
-            echo 3221225472 > /sys/block/zram0/disksize
-        else
-            #config 4GB zramsize with ramsize >=8GB
-            echo 4294967296 > /sys/block/zram0/disksize
-        fi
-        mkswap /dev/block/zram0
-        swapon /dev/block/zram0 -p 32758
-    fi
-}
-
-function oplus_configure_hybridswap() {
-	kernel_version=`uname -r`
-
-	if [[ "$kernel_version" == "5.10"* ]]; then
-		echo 160 > /sys/module/oplus_bsp_zram_opt/parameters/vm_swappiness
-	else
-		echo 160 > /sys/module/zram_opt/parameters/vm_swappiness
-	fi
-
-	echo 0 > /proc/sys/vm/page-cluster
-
-	# FIXME: set system memcg pata in init.kernel.post_boot-lahaina.sh temporary
-	echo 500 > /dev/memcg/system/memory.app_score
-	echo systemserver > /dev/memcg/system/memory.name
-}
-
-#/*Add swappiness tunning parameters*/
-function oplus_configure_tuning_swappiness() {
-	local MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-	local MemTotal=${MemTotalStr:16:8}
-	local para_path=/proc/sys/vm
-	local kernel_version=`uname -r`
-
-	if [[ "$kernel_version" == "5.10"* ]]; then
-		para_path=/sys/module/oplus_bsp_zram_opt/parameters
-	fi
-
-	if [ $MemTotal -le 6291456 ]; then
-		echo 0 > $para_path/vm_swappiness_threshold1
-		echo 0 > $para_path/swappiness_threshold1_size
-		echo 0 > $para_path/vm_swappiness_threshold2
-		echo 0 > $para_path/swappiness_threshold2_size
-	elif [ $MemTotal -le 8388608 ]; then
-		echo 70  > $para_path/vm_swappiness_threshold1
-		echo 2000 > $para_path/swappiness_threshold1_size
-		echo 90  > $para_path/vm_swappiness_threshold2
-		echo 1500 > $para_path/swappiness_threshold2_size
-	else
-		echo 70  > $para_path/vm_swappiness_threshold1
-		echo 4096 > $para_path/swappiness_threshold1_size
-		echo 90  > $para_path/vm_swappiness_threshold2
-		echo 2048 > $para_path/swappiness_threshold2_size
-	fi
-}
-#endif /*OPLUS_FEATURE_ZRAM_OPT*/
-
 function configure_read_ahead_kb_values() {
 
 	dmpts=$(ls /sys/block/*/queue/read_ahead_kb | grep -e dm -e mmc)
@@ -183,16 +86,8 @@ function configure_read_ahead_kb_values() {
 		echo $ra_kb > /sys/block/mmcblk0rpmb/bdi/read_ahead_kb
 	fi
 	for dm in $dmpts; do
-		dm_dev=`echo $dm |cut -d/ -f4`
-		if [ "$dm_dev" = "" ]; then
-			is_erofs=""
-		else
-			is_erofs=`mount |grep erofs |grep "${dm_dev} "`
-		fi
-		if [ "$is_erofs" = "" ]; then
+		if [ `cat $(dirname $dm)/../removable` -eq 0 ]; then
 			echo $ra_kb > $dm
-		else
-			echo 128 > $dm
 		fi
 	done
 }
@@ -218,21 +113,8 @@ function configure_memory_parameters() {
 	#
 	MemTotalStr=`cat /proc/meminfo | grep MemTotal`
 	MemTotal=${MemTotalStr:16:8}
-#ifdef OPLUS_FEATURE_ZRAM_OPT
-	# For vts test which has replace system.img
-	if [ -L "/product" ]; then
-		oplus_configure_zram_parameters
-	else
-		if [ -f /sys/block/zram0/hybridswap_enable ]; then
-			oplus_configure_hybridswap
-		else
-			oplus_configure_zram_parameters
-		fi
-	fi
-	oplus_configure_tuning_swappiness
-#else
-#       configure_zram_parameters
-#endif /*OPLUS_FEATURE_ZRAM_OPT*/
+
+	configure_zram_parameters
 	configure_read_ahead_kb_values
 	echo 100 > /proc/sys/vm/swappiness
 
@@ -293,10 +175,9 @@ echo 0 > /sys/devices/system/cpu/cpu0/core_ctl/enable
 # Setting b.L scheduler parameters
 echo 95 95 > /proc/sys/walt/sched_upmigrate
 echo 85 85 > /proc/sys/walt/sched_downmigrate
-echo 400 > /proc/sys/walt/sched_group_upmigrate
-echo 380 > /proc/sys/walt/sched_group_downmigrate
+echo 100 > /proc/sys/walt/sched_group_upmigrate
+echo 85 > /proc/sys/walt/sched_group_downmigrate
 echo 1 > /proc/sys/walt/sched_walt_rotate_big_tasks
-echo 1000 > /proc/sys/walt/sched_min_task_util_for_colocation
 echo 400000000 > /proc/sys/walt/sched_coloc_downmigrate_ns
 echo 39000000 39000000 39000000 39000000 39000000 39000000 39000000 5000000 > /proc/sys/walt/sched_coloc_busy_hyst_cpu_ns
 echo 240 > /proc/sys/walt/sched_coloc_busy_hysteresis_enable_cpus
@@ -322,9 +203,6 @@ echo 0 > /proc/sys/walt/sched_boost
 # Reset the RT boost, which is 1024 (max) by default.
 echo 0 > /proc/sys/kernel/sched_util_clamp_min_rt_default
 
-# Limit kswapd in cpu0-6
-echo `ps -elf | grep -v grep | grep kswapd0 | awk '{print $2}'` > /dev/cpuset/kswapd-like/tasks
-
 # configure governor settings for silver cluster
 echo "walt" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 echo 0 > /sys/devices/system/cpu/cpufreq/policy0/walt/down_rate_limit_us
@@ -347,10 +225,6 @@ else
 	echo 1555200 > /sys/devices/system/cpu/cpufreq/policy4/walt/hispeed_freq
 fi
 echo 1 > /sys/devices/system/cpu/cpufreq/policy4/walt/pl
-echo "80 2112000:95" > /sys/devices/system/cpu/cpufreq/policy4/walt/target_loads
-
-# config cpufreq_bouncing parameters for gold cluster
-echo "1,1,13,30,2,50,1,50"  > /sys/module/cpufreq_bouncing/parameters/config
 
 # configure governor settings for gold+ cluster
 echo "walt" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
@@ -362,16 +236,6 @@ else
 	echo 1728000 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
 fi
 echo 1 > /sys/devices/system/cpu/cpufreq/policy7/walt/pl
-echo "80 2380800:95" > /sys/devices/system/cpu/cpufreq/policy7/walt/target_loads
-
-# config cpufreq_bouncing parameters for gold+ cluster
-echo "2,1,14,30,2,50,1,50"  > /sys/module/cpufreq_bouncing/parameters/config
-
-#config power effiecny tunning parameters
-echo 1 > /sys/module/cpufreq_effiency/parameters/affect_mode
-echo "307200,45000,1363200,52000,0"  > /sys/module/cpufreq_effiency/parameters/cluster0_effiency
-echo "633600,50000,1996800,55000,0"  > /sys/module/cpufreq_effiency/parameters/cluster1_effiency
-echo "806400,55000,2054400,60000,0"  > /sys/module/cpufreq_effiency/parameters/cluster2_effiency
 
 # configure bus-dcvs
 bus_dcvs="/sys/devices/system/cpu/bus_dcvs"
@@ -482,13 +346,5 @@ case "$console_config" in
 		echo "Enable console config to $console_config"
 	;;
 esac
-
-chown -h system.system /sys/devices/system/cpu/cpufreq/policy0/schedutil/target_loads
-chown -h system.system /sys/devices/system/cpu/cpufreq/policy4/schedutil/target_loads
-chown -h system.system /sys/devices/system/cpu/cpufreq/policy7/schedutil/target_loads
-
-#config fg and top cpu shares
-echo 5120 > /dev/cpuctl/top-app/cpu.shares
-echo 4096 > /dev/cpuctl/foreground/cpu.shares
 
 setprop vendor.post_boot.parsed 1
