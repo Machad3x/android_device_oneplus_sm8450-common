@@ -95,6 +95,8 @@ PRODUCT_COPY_FILES += \
 # Viper4Android
 $(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
 
+TARGET_EXCLUDES_AUDIOFX := true
+
 # Authsecret
 PRODUCT_PACKAGES += \
     android.hardware.authsecret@1.0.vendor
