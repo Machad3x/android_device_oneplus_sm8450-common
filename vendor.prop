@@ -98,6 +98,7 @@ vendor.camera.aux.packageexcludelist=org.telegram.messenger,org.thunderdog.chall
 
 # Chipset
 ro.soc.manufacturer=QTI
+ro.soc.model=SM8450
 
 # DPM
 persist.vendor.dpm.vndr.feature=11
