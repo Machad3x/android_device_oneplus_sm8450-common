@@ -192,6 +192,9 @@ on property:sys.boot_completed=1
     enable vendor.qvirtmgr
     start  vendor.qvirtmgr
 
+    # STOP EATING MY BATTERY AFTER 100H OF UPTIME FUCK YOU
+    stop statsd
+
 service vendor.audioadsprpcd_audiopd /vendor/bin/audioadsprpcd audiopd
     override
     class main
