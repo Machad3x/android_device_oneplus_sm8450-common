@@ -961,7 +961,6 @@ vendor/etc/perf/targetsysnodesconfigs.xml
 vendor/etc/perf/testcommonresourceconfigs.xml
 vendor/etc/perf/testtargetresourceconfigs.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.perf.xml
-vendor/etc/powerhint.xml
 vendor/lib64/liblearningmodule.so
 vendor/lib64/libmeters.so
 vendor/lib64/libperfconfig.so
