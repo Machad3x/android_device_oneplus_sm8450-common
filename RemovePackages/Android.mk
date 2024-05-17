@@ -8,6 +8,8 @@ LOCAL_OVERRIDES_PACKAGES := \
     Chrome \
     Chrome-Stub \
     Drive \
+    Gallery3D \
+    Glimpse \
     Eleven \
     Maps \
     Photos \
