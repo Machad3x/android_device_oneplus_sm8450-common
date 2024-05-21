@@ -183,7 +183,6 @@ memlat.ko
 qcom_logbuf_vendor_hooks.ko
 panel_event_notifier.ko
 qcom_sync_file.ko
-hung_task_enh.ko
 qfprom-sys.ko
 oplus_sensor.ko
 ssc_interact.ko
