@@ -208,6 +208,23 @@ debug.stagefright.omx_default_rank=0
 # Netflix
 ro.netflix.bsp_rev=Q8450-34634-1
 
+# Pihooks
+persist.sys.pihooks.product_name=sailfish
+persist.sys.pihooks.product_device=sailfish
+persist.sys.pihooks.manufacturer=Google
+persist.sys.pihooks.brand=google
+persist.sys.pihooks.product_model=Pixel
+persist.sys.pihooks.build_fingerprint=google/sailfish/sailfish:8.1.0/OPM1.171019.011/4448085:user/release-keys
+persist.sys.pihooks.build_description=sailfish-user 8.1.0 OPM1.171019.011 4448085 release-keys
+persist.sys.pihooks.security_patch=2017-12-05
+persist.sys.pihooks.first_api_level=25
+persist.sys.pihooks.build_id=OPM1.171019.011
+persist.sys.pihooks.build_type=user
+persist.sys.pihooks.build_tags=release-keys
+persist.sys.pihooks.verifiedbootstate=green
+persist.sys.pihooks.flash.locked=1
+persist.sys.pihooks.vbmeta.device_state=locked
+
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 
