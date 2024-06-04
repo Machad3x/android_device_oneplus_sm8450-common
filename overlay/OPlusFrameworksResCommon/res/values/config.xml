@@ -256,8 +256,18 @@
          of known compatibility issues. -->
     <string-array name="config_highRefreshRateBlacklist">
         <item>"com.netflix.mediaclient"</item>
+        <item>"com.instagram.android"</item>
+        <item>"com.crunchyroll.crunchyroid"</item>
+        <item>"com.disney.disneyplus"</item>
+        <item>"com.disney.starplus"</item>
+        <item>"com.wbd.stream"</item>
+        <item>"com.amazon.avod.thirdpartyclient"</item>
+        <item>"com.kwai.video"</item>
+        <item>"com.abs.ca"</item>
+        <item>"com.mm.droid.livetv.tve.mobile"</item>
         <item>"com.google.android.youtube"</item>
         <item>"com.google.android.apps.youtube.music"</item>
+        <item>"tv.twitch.android.app"</item>
         <item>"com.vanced.android.youtube"</item>
         <item>"com.vanced.android.apps.youtube.music"</item>
         <item>"com.zhiliaoapp.musically"</item>
