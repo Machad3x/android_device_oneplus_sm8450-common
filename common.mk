@@ -414,9 +414,9 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service-qti \
     android.hardware.power@1.2.vendor \
-    vendor.qti.hardware.perf@2.3.vendor
+    android.hardware.power-service.lineage-libperfmgr \
+    libqti-perfd-client
 
 #Private Keys
 -include vendor/lineage-priv/keys/keys.mk
@@ -480,7 +480,11 @@ PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
+    hardware/google/interfaces \
+    hardware/google/pixel \
+    hardware/lineage/interfaces/power-libperfmgr \
     hardware/oplus \
+    hardware/qcom-caf/common/libqti-perfd-client \
     kernel/oneplus/sm8450 \
     kernel/oneplus/sm8450-modules
 
