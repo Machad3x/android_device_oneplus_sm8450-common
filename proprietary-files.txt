@@ -848,6 +848,10 @@ vendor/etc/media_codecs_taro_vendor.xml
 vendor/lib64/libEvrcSwCodec.so
 vendor/lib64/libQcelp13SwCodec.so
 vendor/lib64/libdsd2pcm.so
+vendor/lib64/libAlacSwDec.so
+vendor/lib64/libApeSwDec.so
+vendor/lib64/libEvrcSwCodec.so
+vendor/lib64/libFlacSwDec.so
 vendor/lib64/libmmosal_vendor.so
 vendor/lib64/libqc2audio_base.so
 vendor/lib64/libqc2audio_basecodec.so
@@ -881,11 +885,6 @@ vendor/etc/public.libraries.txt
 # Neural networks
 odm/lib64/aiboost/libQnnHtpV69Stub.so
 odm/lib64/libQnnHtpAltPrepV69Stub.so
-
-# OMX
-vendor/lib64/libAlacSwDec.so
-vendor/lib64/libApeSwDec.so
-vendor/lib64/libFlacSwDec.so
 
 # Oplus performance
 odm/bin/hw/vendor-oplus-hardware-performance-V1-service
