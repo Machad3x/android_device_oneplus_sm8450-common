@@ -390,6 +390,7 @@ PRODUCT_PACKAGES += \
 
 # OSENSE
 PRODUCT_PACKAGES += \
+    vendor.oplus.hardware.osense.client-V1-ndk_platform.vendor \
     vendor.oplus.hardware.osense.client-service
 
 # Overlays
