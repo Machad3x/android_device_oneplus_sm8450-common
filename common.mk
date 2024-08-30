@@ -357,11 +357,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.neuralnetworks@1.3.vendor
 
-# OMX
-PRODUCT_PACKAGES += \
-    libOmxCore \
-    libstagefrighthw
-
 # OSENSE
 PRODUCT_PACKAGES += \
     vendor.oplus.hardware.osense.client-service
