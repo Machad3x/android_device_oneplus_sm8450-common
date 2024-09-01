@@ -152,6 +152,11 @@ odm/lib64/soundfx/libswspatializer.so
 vendor/lib64/soundfx/libasphere.so
 vendor/lib64/soundfx/libshoebox.so
 
+# Audio soundfx - from star-user 13 RKQ1.211001.001 V14.0.23.9.18.DEV release-keys
+vendor/lib64/soundfx/libqcbassboost.so|708756550c0fbf42c0e96fba2f82588d69d26624
+vendor/lib64/soundfx/libqcreverb.so|b05c0ce2831aeb777a4b498408b32c63d81e797a
+vendor/lib64/soundfx/libqcvirt.so|69a2e48c588a3cc388cec47033c629858b64b470
+
 # Bluetooth
 vendor/bin/hw/android.hardware.bluetooth@1.0-service-qti
 vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc
