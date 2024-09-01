@@ -31,6 +31,14 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.cammidasservice</name>
+        <version>1</version>
+        <interface>
+            <name>IMIDASService</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.communicationcenter</name>
         <interface>
             <name>IDmtpService</name>
@@ -41,6 +49,14 @@
         <name>vendor.oplus.hardware.performance</name>
         <interface>
             <name>IPerformance</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.sendextcamcmd</name>
+        <version>2</version>
+        <interface>
+            <name>ISendExtCamCmdService</name>
             <instance>default</instance>
         </interface>
     </hal>
