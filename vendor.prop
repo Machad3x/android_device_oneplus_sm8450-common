@@ -177,9 +177,6 @@ debug.stagefright.c2inputsurface=-1
 # Netflix
 ro.netflix.bsp_rev=Q8450-34634-1
 
-# Perf
-ro.vendor.extension_library=libqti-perfd-client.so
-
 # RCS
 persist.vendor.rcs.singlereg.feature=1
 

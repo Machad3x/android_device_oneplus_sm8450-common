@@ -323,13 +323,10 @@ PRODUCT_PACKAGES += \
 
 # QTI Components
 TARGET_COMMON_QTI_COMPONENTS := \
+    perf \
     telephony \
     usb \
     vibrator
-
-# QTI service tracker
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.servicetracker@1.2.vendor
 
 # Sensors
 PRODUCT_PACKAGES += \
