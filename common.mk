@@ -293,17 +293,12 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, hardware/oplus/overlay/generic/generic.mk)
 $(call inherit-product, hardware/oplus/overlay/qssi/qssi.mk)
 
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-aospa
-
-PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
     CarrierConfigResCommon \
     FrameworksResTarget \
     OPlusFrameworksResCommon \
     OPlusSettingsResCommon \
-    OPlusSystemUIResCommon \
-    WifiResTarget
+    OPlusSystemUIResCommon
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
@@ -319,6 +314,7 @@ PRODUCT_PACKAGES += \
 # QTI Components
 TARGET_COMMON_QTI_COMPONENTS := \
     bt \
+    overlay \
     perf \
     telephony \
     usb \
