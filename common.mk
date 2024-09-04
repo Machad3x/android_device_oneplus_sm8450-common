@@ -328,7 +328,8 @@ PRODUCT_PACKAGES += \
 
 # QTI Components
 TARGET_COMMON_QTI_COMPONENTS := \
-    usb
+    usb \
+    vibrator
 
 # QTI service tracker
 PRODUCT_PACKAGES += \
