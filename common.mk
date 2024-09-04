@@ -4,9 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Add common definitions for Qualcomm
-$(call inherit-product, hardware/qcom-caf/common/common.mk)
-
 # A/B
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
@@ -289,9 +286,6 @@ PRODUCT_PACKAGES += \
     libstagefrighthw
 
 # Overlays
-$(call inherit-product, hardware/oplus/overlay/generic/generic.mk)
-$(call inherit-product, hardware/oplus/overlay/qssi/qssi.mk)
-
 PRODUCT_PACKAGES += \
     CarrierConfigResCommon \
     FrameworksResTarget \
