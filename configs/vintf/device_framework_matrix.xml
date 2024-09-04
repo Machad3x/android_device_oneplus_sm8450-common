@@ -77,6 +77,13 @@
         </interface>
     </hal>
     <hal format="aidl" optional="true">
+        <name>vendor.oplus.hardware.osense.client</name>
+        <interface>
+            <name>IOsenseAidlHalReporter</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
         <name>vendor.oplus.hardware.radio</name>
         <interface>
             <name>IRadioStable</name>
