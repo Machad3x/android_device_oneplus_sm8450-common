@@ -110,6 +110,14 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             sed -i "s/IGNORED_IRQ=27,23,38$/&,115,332/" "${2}"
             ;;
+        system_ext/etc/camera/mtCalibrationCfg.xml)
+            [ "$2" = "" ] && return 0
+            sed -i "s/-----/--/" "${2}"
+            ;;
+        system_ext/etc/camera/mwCalibrationCfg.xml)
+            [ "$2" = "" ] && return 0
+            sed -i "s/-----/--/" "${2}"
+            ;;
         *)
             return 1
             ;;
