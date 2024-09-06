@@ -108,6 +108,8 @@ PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-service
 
 # Camera
+$(call inherit-product-if-exists, vendor/oplus/camera/opluscamera.mk)
+
 PRODUCT_PACKAGES += \
     android.frameworks.cameraservice.service@2.2.vendor \
     android.frameworks.sensorservice@1.0.vendor \
