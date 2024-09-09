@@ -86,6 +86,9 @@ DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/configs/vintf/manifest.xml
 ODM_MANIFEST_FILES := $(COMMON_PATH)/configs/vintf/manifest_odm.xml
 
+# HWUI
+USE_OPENGL_RENDERER := true
+
 # Init
 TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_oplus
 
