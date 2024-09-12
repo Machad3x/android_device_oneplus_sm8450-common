@@ -228,19 +228,15 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     fstab.qcom.vendor_ramdisk \
-    init.class_main.sh \
     init.oplus.hw.rc \
     init.oplus.hw.rc.recovery \
     init.oplus.rc \
     init.qcom.early_boot.sh \
-    init.qcom.rc \
     init.qcom.recovery.rc \
-    init.qcom.sh \
     init.qcom.usb.rc \
     init.qcom.usb.sh \
     init.target.rc \
     ueventd.oplus.rc \
-    ueventd.qcom.rc
 
 # Kernel
 PRODUCT_ENABLE_UFFD_GC := false
@@ -332,7 +328,8 @@ PRODUCT_PACKAGES += \
 
 # QTI Components
 TARGET_COMMON_QTI_COMPONENTS := \
-    display
+    display \
+    init
 
 # QTI service tracker
 PRODUCT_PACKAGES += \
