@@ -64,9 +64,6 @@ TARGET_USES_QCOM_MM_AUDIO := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := taro
 
-# Display
-TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE := true
-
 # Properties
 TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
 TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop

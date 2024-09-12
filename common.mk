@@ -66,6 +66,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.AGMIPC@1.0-service \
     vendor.qti.hardware.pal@1.0-impl
 
+AUDIO_HAL_DIR := vendor/qcom/opensource/audio-hal/primary-hal
 QCV_FAMILY_SKUS := cape taro
 
 PRODUCT_COPY_FILES += \
@@ -144,29 +145,9 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
     init.qti.display_boot.rc \
     init.qti.display_boot.sh \
-    libdisplayconfig.qti \
-    libdisplayconfig.system.qti \
-    libqdMetaData \
-    libqdMetaData.system \
-    libsdmcore \
-    libsdmutils \
-    libtinyxml \
-    vendor.display.config@1.0 \
-    vendor.display.config@1.15.vendor \
-    vendor.display.config@2.0 \
-    vendor.display.config@2.0.vendor \
-    vendor.qti.hardware.display.allocator-service \
-    vendor.qti.hardware.display.composer-service \
     vendor.qti.hardware.display.config-V5-ndk \
     vendor.qti.hardware.display.demura@2.0 \
-    vendor.qti.hardware.display.mapper@1.1.vendor \
-    vendor.qti.hardware.display.mapper@2.0.vendor \
-    vendor.qti.hardware.display.mapper@3.0.vendor \
-    vendor.qti.hardware.display.mapper@4.0.vendor \
     android.hardware.common-V2-ndk_platform.vendor
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -348,6 +329,10 @@ PRODUCT_PACKAGES += \
     libqti_vndfwk_detect_vendor \
     libsqlite.vendor:64 \
     libvndfwk_detect_jni.qti.vendor
+
+# QTI Components
+TARGET_COMMON_QTI_COMPONENTS := \
+    display
 
 # QTI service tracker
 PRODUCT_PACKAGES += \
