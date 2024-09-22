@@ -35,7 +35,6 @@ gh_virt_wdt.ko
 hwkm.ko
 icc-bcm-voter.ko
 iommu-logger.ko
-kryo_arm64_edac.ko
 llcc-qcom.ko
 mac80211.ko
 mem_buf_dev.ko
@@ -122,10 +121,8 @@ pwm-qti-lpg.ko
 pci-msm-drv.ko
 camcc-waipio.ko
 camcc-diwali.ko
-debugcc-diwali.ko
 videocc-waipio.ko
 gpucc-waipio.ko
-debugcc-waipio.ko
 gpucc-diwali.ko
 videocc-diwali.ko
 bam_dma.ko
@@ -213,7 +210,6 @@ qcom-i2c-pmic.ko
 oplus_nfc.ko
 sg.ko
 spi-msm-geni.ko
-spmi-glink-debug.ko
 cnss2.ko
 cnss_utils.ko
 wlan_firmware_service.ko
@@ -274,7 +270,6 @@ qti_cpufreq_cdev.ko
 qti_devfreq_cdev.ko
 btpower.ko
 bt_fm_slim.ko
-qcom_edac.ko
 qcom_lpm.ko
 sdhci-msm.ko
 leds-qti-flash.ko
