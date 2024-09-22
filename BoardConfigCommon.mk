@@ -103,7 +103,8 @@ TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_oplus
 BOARD_BOOT_HEADER_VERSION := 4
 BOARD_KERNEL_CMDLINE := \
     allow_file_spec_access \
-    pelt=8
+    pelt=8 \
+    kpti=off
 
 BOARD_BOOTCONFIG:= \
     androidboot.hardware=qcom \
