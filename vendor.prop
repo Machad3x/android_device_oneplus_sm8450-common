@@ -106,7 +106,6 @@ persist.vendor.dpm.vndr.idletimer.mode=default
 
 # Display
 vendor.display.disable_content_fps_hint=0
-vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_noise_layer=1
 vendor.display.disable_offline_rotator=1
 vendor.display.disable_spec_fence=1

@@ -144,6 +144,7 @@ BOOT_SECURITY_PATCH := 2024-07-05
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
 # SEPolicy
+SEPOLICY_PLATFORM := sm8450
 include hardware/oplus/sepolicy/qti/SEPolicy.mk
 
 # UFS
