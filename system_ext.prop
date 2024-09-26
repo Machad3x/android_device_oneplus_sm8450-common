@@ -9,7 +9,6 @@ ro.camera.privileged.3rdpartyApp=com.aiunit.aon;
 dalvik.vm.dex2oat64.enabled=true
 
 # Display
-debug.sf.enable_hwc_vds=1
 persist.sys.brightness.low.gamma=true
 
 # CNE

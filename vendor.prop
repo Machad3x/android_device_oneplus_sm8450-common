@@ -105,30 +105,15 @@ persist.vendor.dpm.vndr.idletimer.mode=default
 #persist.vendor.dpm.vndr.tcm=2
 
 # Display
-vendor.display.comp_mask=0
-vendor.display.disable_3d_adaptive_tm=1
 vendor.display.disable_content_fps_hint=0
-vendor.display.disable_excl_rect=0
-vendor.display.disable_excl_rect_partial_fb=1
 vendor.display.disable_hw_recovery_dump=1
 vendor.display.disable_noise_layer=1
 vendor.display.disable_offline_rotator=1
-vendor.display.disable_scaler=0
-vendor.display.disable_sdr_dimming=1
-vendor.display.disable_sdr_histogram=1
 vendor.display.disable_spec_fence=1
-vendor.display.disable_stc_dimming=1
 vendor.display.disable_system_load_check=1
 vendor.display.enable_async_powermode=0
-vendor.display.enable_async_vds_creation=1
-vendor.display.enable_dpps_dynamic_fps=1
 vendor.display.enable_early_wakeup=1
-vendor.display.enable_hdr10_gpu_target=1
-vendor.display.enable_optimize_refresh=1
-vendor.display.enable_rounded_corner=0
 vendor.display.use_layer_ext=1
-vendor.display.use_smooth_motion=1
-vendor.display.vds_allow_hwc=1
 
 # DRM
 drm.service.enabled=true
@@ -143,16 +128,6 @@ persist.sys.fuse.passthrough.enable=true
 vendor.gatekeeper.disable_spu=true
 
 # Graphics
-debug.sf.disable_client_composition_cache=1
-debug.sf.enable_advanced_sf_phase_offset=1
-debug.sf.enable_gl_backpressure=1
-debug.sf.predict_hwc_composition_strategy=0
-debug.sf.high_fps_early_gl_phase_offset_ns=-2000000
-debug.sf.high_fps_early_phase_offset_ns=-4000000
-debug.sf.high_fps_late_app_phase_offset_ns=1000000
-debug.sf.high_fps_late_sf_phase_offset_ns=-2000000
-debug.sf.latch_unsignaled=1
-debug.sf.treat_170m_as_sRGB=1
 ro.hardware.egl=adreno
 ro.hardware.vulkan=adreno
 ro.opengles.version=196610
