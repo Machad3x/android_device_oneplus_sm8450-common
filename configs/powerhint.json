@@ -199,9 +199,9 @@
       "Name": "GPUMaxFreq",
       "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/max_freq",
       "Values": [
-        "765000000",
-        "645000000",
-        "515000000"
+        "818000000",
+        "640000000",
+        "545000000"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
@@ -210,8 +210,8 @@
       "Name": "GPUMinFreq",
       "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq",
       "Values": [
-        "515000000",
-        "364000000",
+        "492000000",
+        "350000000",
         "220000000"
       ],
       "ResetOnInit": true
@@ -321,9 +321,9 @@
       "Name": "L3MinFreq",
       "Path": "/sys/devices/system/cpu/bus_dcvs/L3/boost_freq",
       "Values": [
-        "1804800",
-        "806400",
-        "300000"
+        "1651200",
+        "825600",
+        "307200"
       ],
       "ResetOnInit": true
     },
@@ -383,7 +383,7 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "515000000"
+      "Value": "640000000"
     },
     {
       "PowerHint": "INTERACTION",
@@ -605,7 +605,7 @@
       "PowerHint": "LAUNCH",
       "Node": "L3MinFreq",
       "Duration": 3000,
-      "Value": "1804800"
+      "Value": "1651200"
     },
     {
       "PowerHint": "LAUNCH",
@@ -635,7 +635,7 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMinFreq",
       "Duration": 0,
-      "Value": "515000000"
+      "Value": "492000000"
     },
     {
       "PowerHint": "Flipendo",
