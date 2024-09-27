@@ -424,6 +424,20 @@ on property:sys.boot_completed=1
     chown media audio /sys/kernel/aud_dev/state
     write /sys/devices/virtual/cvp/cvp/boot 1
 
+    # Power hal
+    chown system system /sys/devices/system/cpu/cpufreq/policy0/walt/up_rate_limit_us
+    chown system system /sys/devices/system/cpu/cpufreq/policy0/walt/down_rate_limit_us
+    chown system system /sys/devices/system/cpu/cpufreq/policy4/walt/up_rate_limit_us
+    chown system system /sys/devices/system/cpu/cpufreq/policy4/walt/down_rate_limit_us
+    chown system system /sys/devices/system/cpu/cpufreq/policy7/walt/up_rate_limit_us
+    chown system system /sys/devices/system/cpu/cpufreq/policy7/walt/down_rate_limit_us
+    chmod 0664 /sys/devices/system/cpu/cpufreq/policy0/walt/up_rate_limit_us
+    chmod 0664 /sys/devices/system/cpu/cpufreq/policy0/walt/down_rate_limit_us
+    chmod 0664 /sys/devices/system/cpu/cpufreq/policy4/walt/up_rate_limit_us
+    chmod 0664 /sys/devices/system/cpu/cpufreq/policy4/walt/down_rate_limit_us
+    chmod 0664 /sys/devices/system/cpu/cpufreq/policy7/walt/up_rate_limit_us
+    chmod 0664 /sys/devices/system/cpu/cpufreq/policy7/walt/down_rate_limit_us
+
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
 
