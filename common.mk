@@ -201,15 +201,6 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss-V1-ndk_platform.vendor \
     android.hardware.keymaster-V3-ndk_platform.vendor
 
-# Graphics
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.opengles.aep.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.opengles.aep.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute-0.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.level-1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.level-1.xml \
-    frameworks/native/data/etc/android.hardware.vulkan.version-1_1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.version-1_1.xml \
-    frameworks/native/data/etc/android.software.opengles.deqp.level-2021-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml \
-    frameworks/native/data/etc/android.software.vulkan.deqp.level-2021-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
-
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@2.1.vendor \
@@ -277,7 +268,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml
 
 PRODUCT_PACKAGES += \
-    libavservices_minijail \
     libavservices_minijail.vendor \
     libcodec2_hidl@1.0.vendor \
     libpalclient
@@ -339,6 +329,9 @@ PRODUCT_PACKAGES += \
 
 # QTI Components
 TARGET_COMMON_QTI_COMPONENTS := \
+    adreno \
+    alarm \
+    av \
     display \
     init
 

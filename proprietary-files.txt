@@ -511,26 +511,6 @@ vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
-# Graphics (Adreno)
-vendor/lib64/egl/eglSubDriverAndroid.so
-vendor/lib64/egl/libEGL_adreno.so;SYMLINK=vendor/lib64/libEGL_adreno.so
-vendor/lib64/egl/libGLESv1_CM_adreno.so
-vendor/lib64/egl/libGLESv2_adreno.so;SYMLINK=vendor/lib64/libGLESv2_adreno.so
-vendor/lib64/egl/libVkLayer_ADRENO_qprofiler.so
-vendor/lib64/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib64/libq3dtools_adreno.so
-vendor/lib64/egl/libq3dtools_esx.so
-vendor/lib64/libCB.so
-vendor/lib64/libOpenCL.so
-vendor/lib64/libadreno_app_profiles.so
-vendor/lib64/libadreno_utils.so
-vendor/lib64/libgpudataproducer.so
-vendor/lib64/libgsl.so
-vendor/lib64/libkcl.so
-vendor/lib64/libkernelmanager.so
-vendor/lib64/libllvm-glnext.so
-vendor/lib64/libllvm-qcom.so
-vendor/lib64/libllvm-qgl.so
-
 # Graphics (Adreno firmware)
 vendor/firmware/a730_sqe.fw
 vendor/firmware/a730_zap.b00
@@ -540,12 +520,6 @@ vendor/firmware/a730_zap.elf
 vendor/firmware/a730_zap.mbn
 vendor/firmware/a730_zap.mdt
 vendor/firmware/gmu_gen70000.bin
-vendor/gpu/kbc/sequence_manifest.bin
-vendor/gpu/kbc/unified_kbcs_64.bin
-vendor/gpu/kbc/unified_ksqs.bin
-
-# Graphics (Vulkan)
-vendor/lib64/hw/vulkan.adreno.so
 
 # GNSS
 odm/etc/izat.conf
@@ -778,8 +752,6 @@ odm/lib64/libaiboost_ubwc.so
 odm/lib64/liboplusvppfilter.so
 odm/lib64/libosie_process.so
 odm/lib64/libosie_stub.so
-system_ext/lib64/libmmosal.so
-system_ext/lib64/libmmparser_lite.so
 vendor/bin/hw/vendor.qti.media.c2@1.0-service
 vendor/bin/hw/vendor.qti.media.c2audio@1.0-service
 vendor/bin/init.qti.media.sh
@@ -921,12 +893,6 @@ vendor/lib64/vendor.qti.hardware.iop@2.0.so
 vendor/lib64/vendor.qti.memory.pasrmanager@1.0.so
 vendor/lib64/vendor.qti.memory.pasrmanager@1.1.so
 vendor/lib64/vendor.qti.power.pasrmanager@1.0.so
-
-# Power-off alarm
-vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service
-vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc
-vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.alarm@1.0.so
 
 # Poweropt
 vendor/bin/poweropt-service
