@@ -118,6 +118,10 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             sed -i "s/-----/--/" "${2}"
             ;;
+        odm/lib64/libaps_frame_registration.so|odm/lib64/libCOppLceTonemapAPI.so|odm/lib64/libCS.so|odm/lib64/libSuperRaw.so|odm/lib64/libYTCommon.so|odm/lib64/libyuv2.so|odm/lib64/libPerfectColor.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF_0_17_2}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
+            ;;
         *)
             return 1
             ;;
