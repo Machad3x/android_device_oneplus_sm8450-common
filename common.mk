@@ -160,7 +160,6 @@ PRODUCT_VENDOR_PROPERTIES += \
     dalvik.vm.heapmaxfree=8m \
     dalvik.vm.ps-min-first-save-ms=5000 \
     dalvik.vm.usejitprofiles=true
-$(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # DebugFS
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
